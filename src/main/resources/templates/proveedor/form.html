@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+	<div class="container py-4">
+
+		<div class="card bg-dark text-white">
+			<div class="card-header" th:text="${titulo}"></div>
+			<div class="card-body">
+
+				<form th:action="@{/proveedor/form}" th:object="${proveedor}"
+					method="post">
+
+					<div class="form-group row">
+						<label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{nombre}" class="form-control"
+								th:errorclass="'form-control alert-danger'" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="numeroTelefonico" class="col-sm-2 col-form-label">Numero Telefonico</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{numeroTelefonico}" class="form-control"
+								th:errorclass="'form-control alert-danger'" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="tipoPago" class="col-sm-2 col-form-label">Tipo Pago</label>
+						<div class="col-sm-6">
+							<ul>
+							  <li>
+							    <input type="radio" th:field="*{tipoPago}" th:value="Bolivianos" />
+							    <label>Bolivianos</label>
+							    <input type="radio" th:field="*{tipoPago}" th:value="Dolares" />
+							    <label>Dolares</label>
+							  </li>
+							</ul>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="existeDeuda" class="col-sm-2 col-form-label">Existe Deuda</label>
+						<div class="col-sm-6">
+							<div class="checkbox">
+							  <input type="checkbox" th:field="*{existeDeuda}">
+							</div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<input type="submit" th:value="'Guardar'"
+								class="btn btn-secondary" />
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

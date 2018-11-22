@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+	<div class="container">
+		<h1
+			class="text-secondary border border-success border-top-0 border-left-0 border-right-0"
+			th:text="${titulo}"></h1>
+        <p><a th:href="@{/proveedor/form}" class="btn btn-success btn-xs">Crear Proveedor</a></p>
+			<p></p>
+				<div class="input-group" th:if="${not #lists.isEmpty(proveedores)}">
+					<span class="input-group-addon">Nombre </span> <input
+						id="entradafilter" type="text" class="form-control">
+				</div>
+				<p></p>
+		<table id="tablaFull" th:if="${not #lists.isEmpty(proveedores)}"
+					class="table table-striped table-bordered">
+					<thead class="thead-inverse">
+						<tr>
+							<th>Id</th>
+							<th>Nombre</th>
+							<th>Numero Telefonico</th>
+							<th>Tipo de Pago</th>
+							<th>Existe Deuda</th>
+							<th>Editar</th>
+							<th>Eliminar</th>
+						</tr>
+					</thead>
+					<tbody class="contenidobusqueda">
+						<tr th:each="proveedor: ${proveedores}">
+							<td th:text="${proveedor.id}"></td>
+							<td th:text="${proveedor.nombre}"></td>
+							<td th:text="${proveedor.numeroTelefonico}"></td>
+							<td th:text="${proveedor.tipoPago}"></td>
+							<td th:text="${proveedor.existeDeuda}"></td>
+							<td><a class="btn btn-primary btn-xs"
+										th:href="'/proveedor/form/' + ${proveedor.id}"
+										th:text="'Editar'"></a></td>
+							<td><a class="btn btn-danger btn-xs"
+										th:href="'/proveedor/eliminar/' + ${proveedor.id} "
+										th:text="'Eliminar'"></a></td>
+				</tr>
+					</tbody>
+				</table>
+	</div>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+	<footer th:replace="layout/layout :: footer"></footer>
+	<script th:replace="proveedor/js/cargar-proveedores :: javascript"></script>
+</body>
+</html>

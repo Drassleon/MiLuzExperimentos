@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<title>Home</title>
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+<h1 align="center">Mi Luz S.R.L.</h1>
+
+<br/>
+<div class="card-group">
+  <div class="card">
+    <img class="card-img-top" src="/images/marcelo.png"
+    	style="width: 200px; height:200px; margin-left: 12.5%;" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Marcelo R&iacute;os Berr&uacute;</h5>
+      <p class="card-text">U201521895</p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="/images/alvaro.png"
+    	style="width: 200px; height:200px; margin-left: 12.5%;" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">&Aacute;lvaro Tocanas Oca&ntilde;a</h5>
+      <p class="card-text">U201611028</p>
+    </div>
+  </div>
+</div>
+
+
+ 
+  <br/>
+<div class="row justify-content-center">
+
+					<div class=".col-xs-6 .col-sm-3">
+
+						<div class="card">
+							<img class="card-img-top" src="/images/henry.jpg" 
+							style="width: 200px; height:200px; margin-left: 12.5%;" alt="Card image cap"> 
+						</div>
+						<div class="card-body">
+							<h4 class="card-title" align="center">Henry Wong</h4>
+							<p class="card-text" align="center">Profesor del curso</p>
+					</div>
+				</div>
+			</div>
+					
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

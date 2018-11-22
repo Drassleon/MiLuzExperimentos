@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+	<script type="text/javascript" th:fragment="javascript">
+	
+	
+	
+	$(document).ready(function () {
+		 
+		
+		   $('#entradafilter').keyup(function () {	
+			    
+			   var chatinput = document.getElementById("entradafilter").value; 
+
+			   if (chatinput == "" || chatinput.length == 0 || chatinput == null) 				
+	 			{ 				
+	 				document.getElementById("tablaFull").hidden = true; 			 
+	 			}else{  					
+	 			    document.getElementById("tablaFull").hidden = false;
+	 			} 
+
+		 				
+				var rex = new RegExp($(this).val(), 'i');
+				
+		        $('.contenidobusqueda tr').hide();
+		        $('.contenidobusqueda tr').filter(function () {
+		            return rex.test($(this).text());
+		        }).show();
+
+		        })
+
+		});
+
+	
+		
+</script>
+
+</body>
+</html>
